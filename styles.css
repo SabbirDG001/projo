@@ -34,6 +34,10 @@ h2 span{
   
 }
 
+.padd{
+    margin-left: 3rem;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;

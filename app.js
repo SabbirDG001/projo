@@ -1,14 +1,15 @@
 document.getElementById("session").innerHTML = "2021-22";
 document.getElementById("class").innerHTML = "Operating System";
+document.getElementById("atdcnt").value = 1;
 
 
 async function fetchStudentData() {
     try {
-        const response = await fetch("students.json"); // Fetch the JSON file
+        const response = await fetch("students.json");
         if (!response.ok) {
             throw new Error("Failed to load student data");
         }
-        const students = await response.json(); // Parse JSON data
+        const students = await response.json();
         populateTable(students);
     } catch (error) {
         console.error("Error:", error);
@@ -18,29 +19,28 @@ async function fetchStudentData() {
 function populateTable(students) {
     const tableBody = document.getElementById("attendanceTable");
 
-    // Clear any existing rows
     tableBody.innerHTML = "";
-
-    // Add rows for each student
+    snong = 0;
     students.forEach(student => {
         const row = document.createElement("tr");
 
-        // Serial No cell
+        // nocell
         const sCell = document.createElement("td");
-        sCell.textContent = student.sNo;
+        snong = snong + 1;
+        sCell.textContent = snong;
         row.appendChild(sCell);
 
-        // Name cell
+        // name cell
         const nameCell = document.createElement("td");
         nameCell.textContent = student.name;
         row.appendChild(nameCell);
 
-        // ID cell
+        // id cell
         const idCell = document.createElement("td");
         idCell.textContent = student.id;
         row.appendChild(idCell);
 
-        // Checkbox cell
+        // checkbox cell
         const checkboxCell = document.createElement("td");
         checkboxCell.classList.add("tcell");
         const checkbox = document.createElement("input");
@@ -54,7 +54,7 @@ function populateTable(students) {
         percentageCell.textContent = "100%";
         row.appendChild(percentageCell);
 
-        // Add the row to the table body
+        // add row
         tableBody.appendChild(row);
     });
     document.querySelectorAll(".tcell").forEach(cell => {

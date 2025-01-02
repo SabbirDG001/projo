@@ -12,8 +12,11 @@
     <div class="sec_1">
         <div>
             <label for="date">Date of attendence: </label>
-            <input type="date" name="date">
-            <button type="button" class="all_btn">Set</button>
+            <input type="date" name="date" id="date">
+        </div>
+        <div>
+            <label for="number">Attendance Count:</label>
+            <input type="number" name="cnt" id="atdcnt" min="1">
         </div>
         <div>
             <button class="all_btn">See All</button>
@@ -31,12 +34,13 @@
                 </tr>
             </thead>
             <tbody id="attendanceTable">
-                
             </tbody>
         </table>
     </section>
-
-
+    <button id="submit" class="all_btn padd">Submit</button>
+    <button id="reset" class="all_btn padd">Reset</button>
     <script src="app.js"></script>
+    <script src="fetch.js"></script>
+
 </body>
 </html>
